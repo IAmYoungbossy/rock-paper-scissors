@@ -2,18 +2,23 @@
 
 //Function to generate random numbers between 1 - 3
 function getRandomNum() {
-    const randomFloat = Math.random();
-    const randomInt = Math.floor(randomFloat*3)+1;
+    let randomFloat = Math.random();
+    let randomInt = Math.floor(randomFloat*3)+1;
     return randomInt;
 }
 
+let randomNum = getRandomNum();
+
 //Assign each random numbers to Rock, Paper and Scissors
 function randomNumToWords() {
-    if (getRandomNum() === 1) {
+    if (randomNum === 1) {
         return 'rock';
-    } else if (getRandomNum() === 2) {
+    } else if (randomNum === 2) {
         return 'paper';
-    } else if (getRandomNum() === 3) {
-        return 'scissors';}
+    } else if (randomNum === 3) {
+        return 'scissors';
+    } else {
+        alert('Error: Something wrong with game algorithm')
     }
+}
 console.log(randomNumToWords());
