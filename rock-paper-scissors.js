@@ -9,13 +9,11 @@ function getRandomNum() {
 
 //Assign each random numbers to Rock, Paper and Scissors
 function randomNumToWords() {
-    if (getRandomNum === 1) {
+    if (getRandomNum() === 1) {
         return 'rock';
-    } else if (getRandomNum === 2) {
+    } else if (getRandomNum() === 2) {
         return 'paper';
-    } else {
-        return 'scissors';
+    } else if (getRandomNum() === 3) {
+        return 'scissors';}
     }
-}
-
 console.log(randomNumToWords());
