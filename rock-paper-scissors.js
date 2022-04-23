@@ -35,3 +35,50 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === computerSelection)? 'It\'s a Tie.': 'Invalid Play!.'
     return message;
 }
+
+
+function game() {
+    let tieScore = 0;
+    let computerScore = 0;
+    let playerScore = 0;
+    let count = 1;
+    
+    for (; count <= 5; count++) {
+        let human = prompt('Pick a word. ROCK, PAPER, or SCISSORS.');
+        let humanPlay = human.toUpperCase();
+        let roundPlay = playRound(humanPlay, computerPlay);
+
+        console.log('You: '+humanPlay+' |*| Bot: '+computerPlay);
+        console.log(roundPlay);
+
+        if (roundPlay === 'You Lose! Scissors cuts Paper.' || roundPlay === 'You Lose! Rock crushes Scissors.' || roundPlay === 'You Lose! Paper beats Rock.') {
+            computerScore++;
+        } else if (roundPlay === 'You Win! Rock crushes Scissors.' || roundPlay === 'You Win! Scissors cuts Paper.' || roundPlay === 'You Win! Paper beats Rock.') {
+            playerScore++;
+        } else {
+            tieScore++;
+        }
+    }
+
+    if (computerScore > playerScore) {
+        console.log('');
+        console.log('');
+        console.log('FINAL RESULTS.')
+        console.log('You Loss! Bot beats you in this round.');
+        console.log('Player Score = '+playerScore+ ' ||| Computer Score = '+computerScore+' ||| Ties Score = '+tieScore);
+    } else if (computerScore < playerScore) {
+        console.log('');
+        console.log('');
+        console.log('FINAL RESULTS.')
+        console.log('You Win! You beat Bot in this round.');
+        console.log('Player Score = '+playerScore+ ' ||| Computer Score = '+computerScore+' ||| Ties Score = '+tieScore)
+    } else {
+        console.log('');
+        console.log('');
+        console.log('FINAL RESULTS.')
+        console.log('It\'s a Tie. You can play again.');
+        console.log('Player Score = '+playerScore+ ' ||| Computer Score = '+computerScore+' ||| Ties Score = '+tieScore)
+    }
+}
+
+game();
