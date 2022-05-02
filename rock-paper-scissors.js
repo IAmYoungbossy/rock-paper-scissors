@@ -1,83 +1,67 @@
-//Rock Paper Scissors Project From The Odin Project
-
-//Function to generate random numbers between 1 - 3
+//Function to generate random numbers between 1 and 3.
 function getRandomNum() {
     let randomFloat = Math.random();
-    let randomInt = Math.floor(randomFloat*3)+1;
+    let randomInt = +Math.floor((randomFloat*3)+1);
     return randomInt;
 }
 
-let randomNum = getRandomNum();//Save function to variable.
-
-//Assign each random numbers to Rock, Paper and Scissors.
-function randomNumToWords() {
-    if (randomNum === 1) {
-        return 'ROCK';
-    } else if (randomNum === 2) {
-        return 'PAPER';
-    } else if (randomNum === 3) {
-        return 'SCISSORS';
+//Function to convert random numbers to Rock, Paper or Scissors.
+function computerPlay() {
+    if (getRandomNum() === 1) {
+        return ('Rock').toUpperCase();
+    } else if (getRandomNum() === 2) {
+        return ('Paper').toUpperCase();
     } else {
-        alert('Error: Something wrong with game algorithm')
+        return ('Scissors').toUpperCase();
     }
 }
 
-let computerPlay = randomNumToWords()//Save function to variable.
-
-//Function for one round play.
+//Function to match player selection to computer selection.
 function playRound(playerSelection, computerSelection) {
-    let message = (playerSelection === 'ROCK' && computerSelection === 'PAPER')? 'You Lose! Paper beats Rock.':
-    (playerSelection === 'PAPER' && computerSelection === 'SCISSORS')? 'You Lose! Scissors cuts Paper.':
-    (playerSelection === 'SCISSORS' && computerSelection === 'ROCK')? 'You Lose! Rock crushes Scissors.':
-    (playerSelection === 'PAPER' && computerSelection === 'ROCK')? 'You Win! Paper beats Rock.':
-    (playerSelection === 'SCISSORS' && computerSelection === 'PAPER')? 'You Win! Scissors cuts Paper.':
-    (playerSelection === 'ROCK' && computerSelection === 'SCISSORS')? 'You Win! Rock crushes Scissors.':
-    (playerSelection === computerSelection)? 'It\'s a Tie.': 'Invalid Play!.'
+    let message =
+    ((playerSelection === 'ROCK') && (computerSelection === 'PAPER'))? 'You Lose! Paper covers Rock.':
+    ((playerSelection === 'PAPER') && (computerSelection === 'SCISSORS'))? 'You Lose! Scissor cuts Paper.':
+    ((playerSelection === 'SCISSORS') && (computerSelection === 'ROCK'))? 'You Lose! Rock crushes Scissor.':
+    ((playerSelection === 'PAPER') && (computerSelection === 'ROCK'))? 'You Win! Paper covers Rock.':
+    ((playerSelection === 'SCISSORS') && (computerSelection === 'PAPER'))? 'You Win! Scissor cuts Paper.':
+    ((playerSelection === 'ROCK') && (computerSelection === 'SCISSORS'))? 'You Win! Rock crushes Scissor.':
+    (playerSelection === computerSelection)? 'It\'s a tie.': 'Invalid play';
     return message;
 }
 
-
+//Function to call the playRound fuction to declare winner who reaches 5 points scores first.
 function game() {
-    let tieScore = 0;
-    let computerScore = 0;
-    let playerScore = 0;
-    let count = 1;
-    
-    for (; count <= 5; count++) {
-        let human = prompt('Pick a word. ROCK, PAPER, or SCISSORS.');
-        let humanPlay = human.toUpperCase();
-        let roundPlay = playRound(humanPlay, computerPlay);
+    //Score counters declaration
+    let tieCount = 0;
+    let playerWins = 0;
+    let computerWins = 0;
 
-        console.log('You: '+humanPlay+' |*| Bot: '+computerPlay);
-        console.log(roundPlay);
-
-        if (roundPlay === 'You Lose! Scissors cuts Paper.' || roundPlay === 'You Lose! Rock crushes Scissors.' || roundPlay === 'You Lose! Paper beats Rock.') {
-            computerScore++;
-        } else if (roundPlay === 'You Win! Rock crushes Scissors.' || roundPlay === 'You Win! Scissors cuts Paper.' || roundPlay === 'You Win! Paper beats Rock.') {
-            playerScore++;
+    //For loop to repeat playRound function untill condition met.
+    for (let i = 1; i > 0; i++) {
+        let computerSelection = computerPlay();
+        let playerSelection = prompt('Choose Your Weapon! Rock, Paper, Scissors.').toUpperCase();
+        let gameRound = (playRound(playerSelection, computerSelection));
+        console.log(gameRound);
+        //Conditions for adding scores to players.
+        if (gameRound === 'You Lose! Paper covers Rock.' || gameRound === 'You Lose! Scissor cuts Paper.' || gameRound === 'You Lose! Rock crushes Scissor.') {
+            computerWins++;
+            //If conditon is met before player, computer wins.
+            if (computerWins === 5) {
+                console.log ('\n You lose! The Computer has beaten you at the game.');
+                console.log('Player Score = '+playerWins+' ||| Computer Score = '+computerWins+' ||| Tie Score = '+tieCount);
+                break;
+            }
+        } else if (gameRound === 'You Win! Paper covers Rock.' || gameRound === 'You Win! Scissor cuts Paper.' || gameRound === 'You Win! Rock crushes Scissor.') {
+            playerWins++;
+            //If conditon is met before computer, player wins.
+            if (playerWins === 5) {
+                console.log ('\n You win! You have beaten the computer at the game.');
+                console.log('Player Score = '+playerWins+' ||| computer Score = '+computerWins+' ||| Tie Score = '+tieCount);
+                break;
+            }
         } else {
-            tieScore++;
+            tieCount++;
         }
-    }
-
-    if (computerScore > playerScore) {
-        console.log('');
-        console.log('');
-        console.log('FINAL RESULTS.')
-        console.log('You Loss! Bot beats you in this round.');
-        console.log('Player Score = '+playerScore+ ' ||| Computer Score = '+computerScore+' ||| Ties Score = '+tieScore);
-    } else if (computerScore < playerScore) {
-        console.log('');
-        console.log('');
-        console.log('FINAL RESULTS.')
-        console.log('You Win! You beat Bot in this round.');
-        console.log('Player Score = '+playerScore+ ' ||| Computer Score = '+computerScore+' ||| Ties Score = '+tieScore)
-    } else {
-        console.log('');
-        console.log('');
-        console.log('FINAL RESULTS.')
-        console.log('It\'s a Tie. You can play again.');
-        console.log('Player Score = '+playerScore+ ' ||| Computer Score = '+computerScore+' ||| Ties Score = '+tieScore)
     }
 }
 
