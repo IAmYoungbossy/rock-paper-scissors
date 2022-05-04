@@ -1,5 +1,6 @@
 body {
     margin: 0px;
+    background-color: rgb(209, 198, 223);
 }
 
 .header {
@@ -12,15 +13,18 @@ body {
 }
 
 #body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 20px 50px;
     display: flex;
     height: 400px;
     border: 2px solid;
-    justify-content: center;
+    flex-wrap: wrap;
 }
 
 #footer {
-    margin: 60px 10px 0px;
+    margin: 80px 10px 0px;
     display: flex;
     border: 2px solid;
     justify-content: center;
@@ -32,8 +36,58 @@ body {
 #container {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    align-items: center;
+    justify-content: space-between;
     /* align-items: center; */
     border: 2px solid;
 
+}
+
+#instruction {
+    margin: 0px 100px;
+    text-align: center;
+
+}
+
+h2 {
+    margin: 0px;
+    border: 2px solid;
+    flex: 1px;
+}
+
+p {
+    margin: 5px;
+    border: 2px solid;
+    flex: 1px;
+}
+
+#playericon {
+    display: flex;
+    gap: 20px;
+}
+
+img {
+    flex: 1px;
+}
+
+#player {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    row-gap: 10px;
+}
+
+#computer {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    row-gap: 10px;
+}
+
+#pick {
+    margin-top: 20px;
+    display: flex;
+    gap: 8px;
 }
