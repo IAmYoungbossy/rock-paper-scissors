@@ -29,40 +29,65 @@ function playRound(playerSelection, computerSelection) {
     return message;
 }
 
-//Function to call the playRound fuction to declare winner who reaches 5 points scores first.
-function game() {
-    //Score counters declaration
-    let tieCount = 0;
-    let playerWins = 0;
-    let computerWins = 0;
 
-    //For loop to repeat playRound function untill condition met.
-    for (let i = 1; i > 0; i++) {
-        let computerSelection = computerPlay();
-        let playerSelection = prompt('Choose Your Weapon! Rock, Paper, Scissors.').toUpperCase();
-        let gameRound = (playRound(playerSelection, computerSelection));
-        console.log(gameRound);
-        //Conditions for adding scores to players.
-        if (gameRound === 'You Lose! Paper covers Rock.' || gameRound === 'You Lose! Scissor cuts Paper.' || gameRound === 'You Lose! Rock crushes Scissor.') {
-            computerWins++;
-            //If conditon is met before player, computer wins.
-            if (computerWins === 5) {
-                console.log ('\n You lose! The Computer has beaten you at the game.');
-                console.log('Player Score = '+playerWins+' ||| Computer Score = '+computerWins+' ||| Tie Score = '+tieCount);
-                break;
-            }
-        } else if (gameRound === 'You Win! Paper covers Rock.' || gameRound === 'You Win! Scissor cuts Paper.' || gameRound === 'You Win! Rock crushes Scissor.') {
-            playerWins++;
-            //If conditon is met before computer, player wins.
-            if (playerWins === 5) {
-                console.log ('\n You win! You have beaten the computer at the game.');
-                console.log('Player Score = '+playerWins+' ||| computer Score = '+computerWins+' ||| Tie Score = '+tieCount);
-                break;
-            }
-        } else {
-            tieCount++;
-        }
-    }
+//Rock selection
+const rock = document.querySelector('#rock');
+rock.addEventListener('click', pickRock);
+function pickRock() {
+    console.log(playRound('ROCK', computerPlay()));
 }
 
-game();
+//Paper selection
+const paper = document.querySelector('#paper');
+paper.addEventListener('click', pickPaper);
+function pickPaper() {
+    console.log(playRound('PAPER', computerPlay()));
+}
+
+//Scissors selection
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', pickScissors);
+function pickScissors() {
+    console.log(playRound('SCISSORS', computerPlay()));
+}
+
+
+
+
+// //Function to call the playRound fuction to declare winner who reaches 5 points scores first.
+// function game() {
+//     //Score counters declaration
+//     let tieCount = 0;
+//     let playerWins = 0;
+//     let computerWins = 0;
+
+//     //For loop to repeat playRound function untill condition met.
+//     for (let i = 1; i > 0; i++) {
+//         let computerSelection = computerPlay();
+//         let playerSelection = prompt('Choose Your Weapon! Rock, Paper, Scissors.').toUpperCase();
+//         let gameRound = (playRound(playerSelection, computerSelection));
+//         console.log(gameRound);
+//         //Conditions for adding scores to players.
+//         if (gameRound === 'You Lose! Paper covers Rock.' || gameRound === 'You Lose! Scissor cuts Paper.' || gameRound === 'You Lose! Rock crushes Scissor.') {
+//             computerWins++;
+//             //If conditon is met before player, computer wins.
+//             if (computerWins === 5) {
+//                 console.log ('\n You lose! The Computer has beaten you at the game.');
+//                 console.log('Player Score = '+playerWins+' ||| Computer Score = '+computerWins+' ||| Tie Score = '+tieCount);
+//                 break;
+//             }
+//         } else if (gameRound === 'You Win! Paper covers Rock.' || gameRound === 'You Win! Scissor cuts Paper.' || gameRound === 'You Win! Rock crushes Scissor.') {
+//             playerWins++;
+//             //If conditon is met before computer, player wins.
+//             if (playerWins === 5) {
+//                 console.log ('\n You win! You have beaten the computer at the game.');
+//                 console.log('Player Score = '+playerWins+' ||| computer Score = '+computerWins+' ||| Tie Score = '+tieCount);
+//                 break;
+//             }
+//         } else {
+//             tieCount++;
+//         }
+//     }
+// }
+
+// game();
