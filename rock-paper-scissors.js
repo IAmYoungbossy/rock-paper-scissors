@@ -29,26 +29,31 @@ function playRound(playerSelection, computerSelection) {
     return message;
 }
 
+const body = document.querySelector('#body');
+let div = document.createElement('div');
+div.classList.add('result');
+div.style.marginTop = '30px';
+body.appendChild(div);
 
 //Rock selection
 const rock = document.querySelector('#rock');
 rock.addEventListener('click', pickRock);
 function pickRock() {
-    console.log(playRound('ROCK', computerPlay()));
+    div.textContent = playRound('ROCK', computerPlay());
 }
 
 //Paper selection
 const paper = document.querySelector('#paper');
 paper.addEventListener('click', pickPaper);
 function pickPaper() {
-    console.log(playRound('PAPER', computerPlay()));
+	div.textContent = playRound('PAPER', computerPlay());;
 }
 
 //Scissors selection
 const scissors = document.querySelector('#scissors');
 scissors.addEventListener('click', pickScissors);
 function pickScissors() {
-    console.log(playRound('SCISSORS', computerPlay()));
+	div.textContent = playRound('SCISSORS', computerPlay());;
 }
 
 
@@ -62,11 +67,11 @@ function pickScissors() {
 //     let computerWins = 0;
 
 //     //For loop to repeat playRound function untill condition met.
-//     for (let i = 1; i > 0; i++) {
+//     /*for (let i = 1; i > 0; i++) {
 //         let computerSelection = computerPlay();
 //         let playerSelection = prompt('Choose Your Weapon! Rock, Paper, Scissors.').toUpperCase();
 //         let gameRound = (playRound(playerSelection, computerSelection));
-//         console.log(gameRound);
+//         console.log(gameRound);*/
 //         //Conditions for adding scores to players.
 //         if (gameRound === 'You Lose! Paper covers Rock.' || gameRound === 'You Lose! Scissor cuts Paper.' || gameRound === 'You Lose! Rock crushes Scissor.') {
 //             computerWins++;
