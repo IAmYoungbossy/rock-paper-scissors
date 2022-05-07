@@ -47,10 +47,10 @@ let message;
 
     if (computerWin === 5) {
         restartGame();
-        // alert('You Lost! Computer won.');
+        alert('You Lost! Computer won.');
     } else if (playerWin === 5) {
         restartGame();
-        // alert('You Won! Computer lost.');
+        alert('You Won! Computer lost.');
     }
 
 //Announces the winner of each round played.
@@ -89,7 +89,6 @@ function restartGame() {
     computerWin = 0;
     computerScore.textContent = 'Computer: '+computerWin;
     playerScore.textContent = 'Player: ' +playerWin;
-    div.textContent = "";
 }
 
 play();

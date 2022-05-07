@@ -88,3 +88,15 @@ img {
     display: flex;
     gap: 8px;
 }
+
+#rock:hover {
+    transform: scale(1.1);
+}
+
+#paper:hover {
+    transform: scale(1.1);
+}
+
+#scissors:hover {
+    transform: scale(1.1);
+}
