@@ -1,3 +1,6 @@
+let playerScore = document.querySelector('#playerp');
+let computerScore = document.querySelector('#computerp');
+
 //Function to generate random numbers between 1 and 3.
 function getRandomNum() {
     let randomFloat = Math.random();
@@ -18,65 +21,57 @@ function computerPlay() {
 
 let playerWin = 0;
 let computerWin = 0;
+
+
 //Function to match player selection to computer selection.
 function playRound(playerSelection, computerSelection) {
 let message;
+//Keeps records of Player and Computer scores.
+	if ((playerSelection === 'ROCK' && computerSelection === 'PAPER') || (playerSelection === 'PAPER' && computerSelection === 'SCISSORS') || (playerSelection === 'SCISSORS' && computerSelection === 'ROCK')) {
+		computerWin++;
+		computerScore.textContent = 'Computer: '+computerWin;
+	}
+	if ((playerSelection === 'PAPER' && computerSelection === 'ROCK') || (playerSelection === 'SCISSORS' && computerSelection === 'PAPER') || (playerSelection === 'ROCK' && computerSelection === 'SCISSORS')) {
+		playerWin++;
+		playerScore.textContent = 'Player: ' +playerWin;
+	}
+
+//Announces the winner of each round played.
     if (playerSelection === 'ROCK') { 
 		if (computerSelection === 'PAPER') {
-			computerWin++;
-			console.log('Computer: '+computerWin);
 			return message ='You Lose! Paper covers Rock.';
 		}
 	}
 	if (playerSelection === 'PAPER') {
 		if (computerSelection === 'SCISSORS') {
-			computerWin++;
-			console.log('Computer: '+computerWin);
 			return message = 'You Lose! Scissor cuts Paper.';
 		}
 	}
 	if (playerSelection === 'SCISSORS') {
 		if (computerSelection === 'ROCK') {
-			computerWin++;
-			console.log('Computer: '+computerWin);
 			return message = 'You Lose! Rock crushes Scissor.';
 		}
 	}
 	if (playerSelection === 'PAPER') {
 		if (computerSelection === 'ROCK') {
-			playerWin++;
-			console.log('Player: '+playerWin);
 			return message = 'You Win! Paper covers Rock.';
 		}
 	}
 	if (playerSelection === 'SCISSORS') {
 		if (computerSelection === 'PAPER') {
-			playerWin++;
-			console.log('Player: '+playerWin);
 			return message = 'You Win! Scissor cuts Paper.';
 		}
 	}
 	if (playerSelection === 'ROCK') {
 		if (computerSelection === 'SCISSORS') {
-			playerWin++;
-			console.log('Player: '+playerWin);
 			return message = 'You Win! Rock crushes Scissor.';
 		}
 	}
 	if (playerSelection === computerSelection) {
 		return message = 'It\'s a tie.';
 	}
-
-    // let message =
-    // ((playerSelection === 'ROCK') && (computerSelection === 'PAPER'))? 'You Lose! Paper covers Rock.':
-    // ((playerSelection === 'PAPER') && (computerSelection === 'SCISSORS'))? 'You Lose! Scissor cuts Paper.':
-    // ((playerSelection === 'SCISSORS') && (computerSelection === 'ROCK'))? 'You Lose! Rock crushes Scissor.':
-    // ((playerSelection === 'PAPER') && (computerSelection === 'ROCK'))? 'You Win! Paper covers Rock.':
-    // ((playerSelection === 'SCISSORS') && (computerSelection === 'PAPER'))? 'You Win! Scissor cuts Paper.':
-    // ((playerSelection === 'ROCK') && (computerSelection === 'SCISSORS'))? 'You Win! Rock crushes Scissor.':
-    // (playerSelection === computerSelection)? 'It\'s a tie.': 'Invalid play';
-    // return message;
 }
+
 
 
 //Added new div for displaying each round result
