@@ -14,8 +14,6 @@ div.classList.add('result');
 div.style.marginTop = '30px';
 body.appendChild(div);
 
-
-
 //Function to generate random numbers between 1 and 3.
 function getRandomNum() {
     let randomFloat = Math.random();
@@ -47,6 +45,14 @@ let message;
 		playerScore.textContent = 'Player: ' +playerWin;
 	}
 
+    if (computerWin === 5) {
+        restartGame();
+        // alert('You Lost! Computer won.');
+    } else if (playerWin === 5) {
+        restartGame();
+        // alert('You Won! Computer lost.');
+    }
+
 //Announces the winner of each round played.
 message =
     ((playerSelection === 'ROCK') && (computerSelection === 'PAPER'))? 'You Lose! Paper covers Rock.':
@@ -76,6 +82,14 @@ function pickScissors() {
 rock.addEventListener('click', pickRock);
 paper.addEventListener('click', pickPaper);
 scissors.addEventListener('click', pickScissors);
+}
+
+function restartGame() {
+    playerWin = 0;
+    computerWin = 0;
+    computerScore.textContent = 'Computer: '+computerWin;
+    playerScore.textContent = 'Player: ' +playerWin;
+    div.textContent = "";
 }
 
 play();
