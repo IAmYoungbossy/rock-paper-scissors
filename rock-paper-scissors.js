@@ -55,12 +55,14 @@ let message;
     }
 
     if (computerWin === 5) {
+        totalScore = playerWin+computerWin+tieScore;
+        alert('You Lost The Game!\n Player Score: '+playerWin+'\n Computer Score: '+computerWin+'\n Tie Score: '+tieScore+'\n Number Of Rounds Played; '+totalScore);
         restartGame();
-        alert('You Lost! Computer won.');
         return;
     } else if (playerWin === 5) {
+        totalScore = playerWin+computerWin+tieScore;
+        alert('You Won The Game!\n Player Score: '+playerWin+'\n Computer Score: '+computerWin+'\n Tie Score: '+tieScore+'\n Number Of Rounds Played; '+totalScore);
         restartGame();
-        alert('You Won! Computer lost.');
         return;
     }
 
