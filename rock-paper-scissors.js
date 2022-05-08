@@ -48,9 +48,11 @@ let message;
     if (computerWin === 5) {
         restartGame();
         alert('You Lost! Computer won.');
+        return;
     } else if (playerWin === 5) {
         restartGame();
         alert('You Won! Computer lost.');
+        return;
     }
 
 //Announces the winner of each round played.
