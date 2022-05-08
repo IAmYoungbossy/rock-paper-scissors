@@ -1,6 +1,8 @@
 //Global Variable
 let playerWin = 0;
 let computerWin = 0;
+let tieScore = 0;
+let totalScore;
 //DOM caching
 let playerScore = document.querySelector('#playerp');
 let computerScore = document.querySelector('#computerp');
@@ -10,9 +12,11 @@ const scissors = document.querySelector('#scissors');
 //Added new div for displaying each round result
 const body = document.querySelector('#body');
 let div = document.createElement('div');
+let tie = document.querySelector('#tie');
 div.classList.add('result');
 div.style.marginTop = '30px';
 body.appendChild(div);
+div.textContent = 'Pick a choice to start game.'
 
 //Function to generate random numbers between 1 and 3.
 function getRandomNum() {
@@ -32,6 +36,7 @@ function computerPlay() {
     }
 }
 
+
 //Function to match player selection to computer selection.
 function playRound(playerSelection, computerSelection) {
 let message;
@@ -44,6 +49,10 @@ let message;
 		playerWin++;
 		playerScore.textContent = 'Player: ' +playerWin;
 	}
+    if (playerSelection === computerSelection) {
+        tieScore++;
+        tie.textContent = 'Tie: '+tieScore;
+    }
 
     if (computerWin === 5) {
         restartGame();
@@ -89,8 +98,11 @@ scissors.addEventListener('click', pickScissors);
 function restartGame() {
     playerWin = 0;
     computerWin = 0;
+    tieScore = 0;
     computerScore.textContent = 'Computer: '+computerWin;
     playerScore.textContent = 'Player: ' +playerWin;
+    tie.textContent = 'Tie: '+tieScore;
+    div.textContent = 'Pick a choice to play again.';
 }
 
 play();
