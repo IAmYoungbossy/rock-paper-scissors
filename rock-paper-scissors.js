@@ -69,11 +69,11 @@ let message;
 //Announces the winner of each round played.
 message =
     ((playerSelection === 'ROCK') && (computerSelection === 'PAPER'))? 'You Lose! Paper covers Rock.':
-    ((playerSelection === 'PAPER') && (computerSelection === 'SCISSORS'))? 'You Lose! Scissor cuts Paper.':
-    ((playerSelection === 'SCISSORS') && (computerSelection === 'ROCK'))? 'You Lose! Rock crushes Scissor.':
+    ((playerSelection === 'PAPER') && (computerSelection === 'SCISSORS'))? 'You Lose! Scissors cuts Paper.':
+    ((playerSelection === 'SCISSORS') && (computerSelection === 'ROCK'))? 'You Lose! Rock crushes Scissors.':
     ((playerSelection === 'PAPER') && (computerSelection === 'ROCK'))? 'You Win! Paper covers Rock.':
-    ((playerSelection === 'SCISSORS') && (computerSelection === 'PAPER'))? 'You Win! Scissor cuts Paper.':
-    ((playerSelection === 'ROCK') && (computerSelection === 'SCISSORS'))? 'You Win! Rock crushes Scissor.':
+    ((playerSelection === 'SCISSORS') && (computerSelection === 'PAPER'))? 'You Win! Scissors cuts Paper.':
+    ((playerSelection === 'ROCK') && (computerSelection === 'SCISSORS'))? 'You Win! Rock crushes Scissors.':
     (playerSelection === computerSelection)? 'It\'s a tie.': 'Invalid play';
     return message;
 }
@@ -82,14 +82,41 @@ message =
 function play() {
 function pickRock() {
 	div.textContent = playRound('ROCK', computerPlay());
+    if (div.textContent === 'You Lose! Paper covers Rock.') { document.querySelector('#rock').classList.add('red-glow');
+    setTimeout(function() {document.querySelector('#rock').classList.remove('red-glow');}, 300);
+    }
+    if (div.textContent === 'You Win! Rock crushes Scissors.') { document.querySelector('#rock').classList.add('green-glow');
+    setTimeout(function() {document.querySelector('#rock').classList.remove('green-glow');}, 300);
+    }
+    if (div.textContent === 'It\'s a tie.') { document.querySelector('#rock').classList.add('grey-glow');
+    setTimeout(function() {document.querySelector('#rock').classList.remove('grey-glow');}, 300);
+    }
  	return (div.textContent);
 }
 function pickPaper() {
 	div.textContent = playRound('PAPER', computerPlay());
+    if (div.textContent === 'You Lose! Scissors cuts Paper.') { document.querySelector('#paper').classList.add('red-glow');
+    setTimeout(function() {document.querySelector('#paper').classList.remove('red-glow');}, 300);
+    }
+    if (div.textContent === 'You Win! Paper covers Rock.') { document.querySelector('#paper').classList.add('green-glow');
+    setTimeout(function() {document.querySelector('#paper').classList.remove('green-glow');}, 300);
+    }
+    if (div.textContent === 'It\'s a tie.') { document.querySelector('#paper').classList.add('grey-glow');
+    setTimeout(function() {document.querySelector('#paper').classList.remove('grey-glow');}, 300);
+    }
 	return (div.textContent);
 }
 function pickScissors() {
 	div.textContent = playRound('SCISSORS', computerPlay());
+    if (div.textContent === 'You Lose! Rock crushes Scissors.') { document.querySelector('#scissors').classList.add('red-glow');
+    setTimeout(function() {document.querySelector('#scissors').classList.remove('red-glow');}, 300);
+    }
+    if (div.textContent === 'You Win! Scissors cuts Paper.') { document.querySelector('#scissors').classList.add('green-glow');
+    setTimeout(function() {document.querySelector('#scissors').classList.remove('green-glow');}, 300);
+    }
+    if (div.textContent === 'It\'s a tie.') { document.querySelector('#scissors').classList.add('grey-glow');
+    setTimeout(function() {document.querySelector('#scissors').classList.remove('grey-glow');}, 300);
+    }
 	return (div.textContent);
 }
 rock.addEventListener('click', pickRock);

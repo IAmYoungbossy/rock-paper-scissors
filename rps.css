@@ -99,13 +99,28 @@ img {
 }
 
 #rock:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
 }
 
 #paper:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
 }
 
 #scissors:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
+}
+
+.green-glow {
+    border: 1px solid #4dcc7d;
+    box-shadow: 0 0 5px  #31b43a;
+}
+
+.red-glow {
+    border: 1px solid #fc121b;
+    box-shadow: 0 0 5px  #d01115;
+}
+
+.grey-glow {
+    border: 1px solid #464647;
+    box-shadow: 0 0 5px  #25292b;
 }
