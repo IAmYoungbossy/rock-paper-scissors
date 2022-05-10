@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 body {
     margin: 0px;
-    background-color: rgb(172, 212, 224);
+    background-color: #aba996;
 }
 
 .header {
@@ -98,7 +99,7 @@ img {
     gap: 8px;
 }
 
-#rock:hover {
+/* #rock:hover {
     transform: scale(1.02);
 }
 
@@ -108,7 +109,7 @@ img {
 
 #scissors:hover {
     transform: scale(1.02);
-}
+} */
 
 .green-glow {
     border: 1px solid #4dcc7d;
