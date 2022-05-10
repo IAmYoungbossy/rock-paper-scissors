@@ -6,9 +6,17 @@ let totalScore;
 //DOM caching
 let playerScore = document.querySelector('#playerp');
 let computerScore = document.querySelector('#computerp');
+//
+const playAgain = document.querySelector('.playAgain');
+const modal = document.querySelector('.modal');
+const modalContent = document.querySelector('.modal-content');
+const closeButton = document.querySelector('.close-button');
+let gameOver = document.querySelector('.modal-content > h5');
+//
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
+const button = document.querySelector('.btn');
 //Added new div for displaying each round result
 const body = document.querySelector('#body');
 let div = document.createElement('div');
@@ -56,14 +64,16 @@ let message;
 
     if (computerWin === 5) {
         totalScore = playerWin+computerWin+tieScore;
-        alert('You Lost The Game!\n Player Score: '+playerWin+'\n Computer Score: '+computerWin+'\n Tie Score: '+tieScore+'\n Number Of Rounds Played; '+totalScore);
+        toggleModal();
+        gameOver.textContent = 'You Lost';
         restartGame();
-        return;
+        return div.textContent = 'Pick a choice to play again';
     } else if (playerWin === 5) {
         totalScore = playerWin+computerWin+tieScore;
-        alert('You Won The Game!\n Player Score: '+playerWin+'\n Computer Score: '+computerWin+'\n Tie Score: '+tieScore+'\n Number Of Rounds Played; '+totalScore);
+        toggleModal();
+        gameOver.textContent = 'You Won';
         restartGame();
-        return;
+        return div.textContent = 'Pick a choice to play again';
     }
 
 //Announces the winner of each round played.
@@ -131,7 +141,13 @@ function restartGame() {
     computerScore.textContent = 'Computer: '+computerWin;
     playerScore.textContent = 'Player: ' +playerWin;
     tie.textContent = 'Tie: '+tieScore;
-    div.textContent = 'Pick a choice to play again.';
+    div.textContent = 'Pick a choice to start game.';
 }
 
+function toggleModal() {
+    modal.classList.toggle("show-modal");
+}
+
+playAgain.addEventListener('click', toggleModal);
+button.addEventListener('click', restartGame);
 play();
