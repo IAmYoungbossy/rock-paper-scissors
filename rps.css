@@ -160,6 +160,7 @@ a {
 .btn {
     font-family: Monospace, Sans-Serif;
     padding: 2px;
+    cursor: pointer;
 }
 
 /*Modal Design*/
@@ -249,4 +250,8 @@ a {
 
 #instruction > h2 {
     font-family: 'Press Start 2P', Sans-Serif;
+}
+
+.playerChoice {
+    cursor: pointer;
 }
