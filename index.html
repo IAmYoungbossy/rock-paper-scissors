@@ -1,61 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="rps.css" />
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-    <script src="rock-paper-scissors.js"  defer></script>
-</head>
-<body>
-    <div id="container">
-        <div id="headerbody"> 
-            <div class="header" >
-                <h1>ROCK PAPER SCISSORS</h1>
-            </div>
-            <div id="body">
-                <div id="instruction">
-                    <h2 id="header2">Choose your weapon</h2>
-                    <p>
-                        First to score 5 points wins the game.
-                    </p>
-                </div>
-                <div id="playericon">
-                    <div id="player" >
-                        <img class="iconboxshadow" src="/img/player.jpg" alt="player">
-                        <p id="playerp" >Player: 0</p>
-                    </div>
-                    <div id="computer" >
-                        <img class="iconboxshadow" src="/img/bot1.jpg" alt="bot">
-                        <p id="computerp">Computer: 0</p>
-                    </div>
-                </div>
-                <div id="pick">
-                    <img class="playerChoice" id="rock" alt="rock" src="/img/rock.png">
-                    <img class="playerChoice" id="paper" alt="paper" src="/img/paper.png">
-                    <img class="playerChoice" id="scissors" alt="scissors" src="/img/scissors.png">
-                </div>
-                <p id="tie">Tie: 0</p>
-            </div>
-        <button class="btn">Reset 🔄</button>
-        </div>
-        <div class="modal">
-            <div class="modal-content">
-                <!--span class="close-button">&times;</span-->
-                <h5>Game Over</h5>
-                <button class="playAgain">
-                    Play Again
-                </button>
-            </div>
-        </div>
-        <!--Footer Section-->
-        <div id="footer">
-            <footer>
-                Copyright &copy; 2022 IamYoungbossy<a href="https://github.com/IamYoungbossy/rock-paper-scissors"><i class="fa fa-github" style="color: black;"></i></a>
-            </footer>
-        </div>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="rock-paper-scissors.js" defer></script>
+  </head>
+  <body>
+    <div class="header">
+      <h1>ROCK PAPER SCISSORS</h1>
     </div>
-</body>
+    <div id="headerbody">
+      <div id="body">
+        <div id="instruction">
+          <h2 id="header2">Choose your weapon</h2>
+          <p>First to score 5 points wins the game.</p>
+        </div>
+        <div id="playericon">
+          <div id="player">
+            <img class="iconboxshadow" src="/img/player.jpg" alt="player" />
+            <p id="playerp">Player: 0</p>
+          </div>
+          <div id="computer">
+            <img class="iconboxshadow" src="/img/bot1.jpg" alt="bot" />
+            <p id="computerp">Computer: 0</p>
+          </div>
+        </div>
+        <div id="pick">
+          <img class="playerChoice" id="rock" alt="rock" src="/img/rock.png" />
+          <img
+            class="playerChoice"
+            id="paper"
+            alt="paper"
+            src="/img/paper.png"
+          />
+          <img
+            class="playerChoice"
+            id="scissors"
+            alt="scissors"
+            src="/img/scissors.png"
+          />
+        </div>
+        <p id="tie">Tie: 0</p>
+      </div>
+      <button class="btn">Reset 🔄</button>
+    </div>
+    <div class="modal">
+      <div class="modal-content">
+        <!--span class="close-button">&times;</span-->
+        <h5>Game Over</h5>
+        <button class="playAgain">Play Again</button>
+      </div>
+    </div>
+    <!--Footer Section-->
+    <div id="footer">
+      <footer>
+        Copyright &copy; 2022 IamYoungbossy<a
+          href="https://github.com/IamYoungbossy/rock-paper-scissors"
+          ><i class="fa fa-github" style="color: black"></i
+        ></a>
+      </footer>
+    </div>
+  </body>
 </html>
