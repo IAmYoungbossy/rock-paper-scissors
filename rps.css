@@ -3,6 +3,7 @@
 body {
     margin: 0px;
     background-color: /*rgb(172, 212, 224)*/#aba996;
+    height: 100vh;
 }
 
 .header {

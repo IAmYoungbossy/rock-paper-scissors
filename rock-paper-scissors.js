@@ -1,24 +1,17 @@
-//Global Variable
-let playerWin = 0;
-let computerWin = 0;
-let tieScore = 0;
-let totalScore;
-//DOM caching
+let playerWin = 0, computerWin = 0, tieScore = 0, totalScore;
 let playerScore = document.querySelector('#playerp');
 let computerScore = document.querySelector('#computerp');
-//
 const playAgain = document.querySelector('.playAgain');
 const modal = document.querySelector('.modal');
 const modalContent = document.querySelector('.modal-content');
 const closeButton = document.querySelector('.close-button');
 let gameOver = document.querySelector('.modal-content > h5');
-//
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 const button = document.querySelector('.btn');
-//Added new div for displaying each round result
 const body = document.querySelector('#body');
+
 let div = document.createElement('div');
 let tie = document.querySelector('#tie');
 div.classList.add('result');
@@ -26,29 +19,20 @@ div.style.marginTop = '30px';
 body.appendChild(div);
 div.textContent = 'Pick a choice to start game.'
 
-//Function to generate random numbers between 1 and 3.
 function getRandomNum() {
     let randomFloat = Math.random();
     let randomInt = +Math.floor((randomFloat*3)+1);
     return randomInt;
 }
 
-//Function to convert random numbers to Rock, Paper or Scissors.
 function computerPlay() {
-    if (getRandomNum() === 1) {
-        return ('Rock').toUpperCase();
-    } else if (getRandomNum() === 2) {
-        return ('Paper').toUpperCase();
-    } else {
-        return ('Scissors').toUpperCase();
-    }
+    if (getRandomNum() === 1) return ('Rock').toUpperCase();
+    else if (getRandomNum() === 2) return ('Paper').toUpperCase();
+    else return ('Scissors').toUpperCase();
 }
 
-
-//Function to match player selection to computer selection.
 function playRound(playerSelection, computerSelection) {
 let message;
-//Keeps records of Player and Computer scores.
 	if ((playerSelection === 'ROCK' && computerSelection === 'PAPER') || (playerSelection === 'PAPER' && computerSelection === 'SCISSORS') || (playerSelection === 'SCISSORS' && computerSelection === 'ROCK')) {
 		computerWin++;
 		computerScore.textContent = 'Computer: '+computerWin;
