@@ -2,8 +2,13 @@
 
 body {
     margin: 0px;
-    background-color: /*rgb(172, 212, 224)*/#aba996;
-    height: 100vh;
+    background-color: rgb(117, 111, 95);
+    min-height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .header {
@@ -37,7 +42,7 @@ body {
 }
 
 #footer {
-    margin: 80px 10px 0px;
+    margin: auto 10px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
