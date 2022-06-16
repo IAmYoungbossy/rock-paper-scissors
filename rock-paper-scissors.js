@@ -10,7 +10,7 @@ const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 const button = document.querySelector('.btn');
-const body = document.querySelector('#body');
+const body = document.querySelector('#container');
 
 let div = document.createElement('div');
 let tie = document.querySelector('#tie');
