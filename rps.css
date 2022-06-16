@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-body {
+* {
     margin: 0px;
+    padding: 0px;
+}
+body {
     background-color: rgb(117, 111, 95);
     min-height: 100vh;
     width: 100vw;
-    margin: 0px;
-    padding: 0px;
     display: flex;
     flex-direction: column;
     align-items: space-between;
@@ -20,16 +20,14 @@ body {
     background-color: black;
     font-family: 'Press Start 2P', Sans-Serif;
     color: #aba996;
-    padding: 0px 10px;
-    font-size: 1rem;
-    width: 50%;
+    padding: 10px 20px;
 }
 
-#body {
+#container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px 50px;
+    margin: 4vh 0vh 0vh;
     display: flex;
     flex-wrap: wrap;
 	justify-content: center;
@@ -37,12 +35,8 @@ body {
 	text-align: center;
 }
 
-#headerbody {
-    text-align: center;
-}
-
 #footer {
-    margin: auto 10px 0px;
+    margin: auto 10px 0px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,16 +44,7 @@ body {
     height: 50px;
 }
 
-#container {
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-
 #instruction {
-    margin: 0px 100px;
     text-align: center;
 
 }
@@ -97,7 +82,6 @@ img {
 }
 
 #playerp, #computerp {
-    /*margin-top: 20px 0px;*/
     border: 2px solid #e5e6d3;
     border-radius: 15px;
     padding: 5px;
@@ -124,7 +108,7 @@ img {
 }
 
 #pick {
-    margin: 20px 50px 10px;
+    margin: 10px 0px;
     padding: 5px;
     width: 300px;
     height: 70px;
@@ -201,7 +185,6 @@ a {
     transform: translate(-50%, -50%);
     background-color: white;
     padding: 5px 10px;
-    /*width: 24rem;*/
     border-radius: 0.5rem;
     text-align: center;
     background:#0b2e2a;
